@@ -1,6 +1,4 @@
-# This codes are made by GPT-4. 
-
-# All of them including this README.md file.
+# This codes are made by GPT-4 including this README.md file.
 
 
 
@@ -8,7 +6,7 @@
 
 
 
-# Bulletin Board
+## Bulletin Board
 
 A simple Flask web application that allows users to post messages on a bulletin board.
 
