@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mb-4">Bulletin Board</h1>
+            <ul class="list-group">
+                {% for post in posts %}
+                    <li class="list-group-item">
+                        <h2><a href="{{ url_for('post_details', post_id=post.id) }}">{{ post.title }}</a></h2>
+                        <p>Author: {{ post.user.username }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+            <nav aria-label="Page navigation" class="mt-3">
+                <ul class="pagination justify-content-center">
+                    {% for page_num in pagination.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                        {% if page_num %}
+                            <li class="page-item {% if page_num == pagination.page %}active{% endif %}">
+                                <a class="page-link" href="{{ url_for('bulletin_board', page=page_num) }}">{{ page_num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <span class="page-link">…</span>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+
